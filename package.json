@@ -1,0 +1,15 @@
+{
+  "name": "intelligent-liaowang-v03",
+  "version": "0.3.0",
+  "description": "智能瞭望与智能问数系统 v0.3 前后台一体化平台",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test test/system.test.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}

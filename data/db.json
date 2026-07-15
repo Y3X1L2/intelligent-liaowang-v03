@@ -1,0 +1,1037 @@
+{
+  "meta": {
+    "version": "0.3.0",
+    "updatedAt": "2026-07-15T02:05:41.342Z"
+  },
+  "users": [
+    {
+      "id": "user-admin",
+      "username": "admin",
+      "realName": "系统管理员",
+      "passwordHash": "23fb244a163379b4f038705a99416aed:3460dfdd8c5ab3eb2b3419c7ee5f12d67edd61c0c08334443bfa308052625f744430e0ff972ec4796851310031055235a831dd0b1cec5e87731182c490704ba0",
+      "email": "admin@liaowang.local",
+      "phone": "13800000000",
+      "roleIds": [
+        "role-admin"
+      ],
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "user-analyst",
+      "username": "analyst",
+      "realName": "数据分析员",
+      "passwordHash": "54e6e256ca3697aa4bdb1d576422cee4:ca356319265b9a1470b5440992d9f232a044bdca355e05a8250aa09cdcabf2d5b0c8846286a90117252bebaed21d5211e8152a509b10e9058eb33930c7616e5e",
+      "email": "analyst@liaowang.local",
+      "phone": "13900000000",
+      "roleIds": [
+        "role-analyst"
+      ],
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "user-demo",
+      "username": "demo",
+      "realName": "演示用户",
+      "passwordHash": "0e29921c466bb73df41bff5c741a47d6:e47201c9924eea02fdff1119426ef89c8b04cff027aa4339579cd0b63146ee950352a2843ba7a63b26b9a9a0138a8df25b72e946c30cc21aed6fb390e0e62d08",
+      "email": "demo@liaowang.local",
+      "phone": "",
+      "roleIds": [
+        "role-member"
+      ],
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "roles": [
+    {
+      "id": "role-admin",
+      "name": "超级管理员",
+      "code": "SUPER_ADMIN",
+      "description": "拥有系统全部业务与管理权限",
+      "functionIds": [
+        "fn-dashboard-view",
+        "fn-collection-view",
+        "fn-collection-create",
+        "fn-collection-update",
+        "fn-collection-delete",
+        "fn-collection-run",
+        "fn-source-view",
+        "fn-source-create",
+        "fn-source-update",
+        "fn-source-delete",
+        "fn-source-test",
+        "fn-warehouse-view",
+        "fn-warehouse-create",
+        "fn-warehouse-update",
+        "fn-warehouse-delete",
+        "fn-warehouse-sync",
+        "fn-model-view",
+        "fn-model-create",
+        "fn-model-update",
+        "fn-model-delete",
+        "fn-model-run",
+        "fn-user-view",
+        "fn-user-create",
+        "fn-user-update",
+        "fn-user-delete",
+        "fn-user-reset",
+        "fn-function-view",
+        "fn-function-create",
+        "fn-function-update",
+        "fn-function-delete",
+        "fn-role-view",
+        "fn-role-create",
+        "fn-role-update",
+        "fn-role-delete",
+        "fn-menu-view",
+        "fn-menu-create",
+        "fn-menu-update",
+        "fn-menu-delete",
+        "fn-employee-view",
+        "fn-employee-create",
+        "fn-employee-update",
+        "fn-employee-delete",
+        "fn-employee-run"
+      ],
+      "menuIds": [
+        "menu-dashboard",
+        "menu-business",
+        "menu-collections",
+        "menu-sources",
+        "menu-warehouse",
+        "menu-models",
+        "menu-system",
+        "menu-users",
+        "menu-functions",
+        "menu-roles",
+        "menu-menus",
+        "menu-employees"
+      ],
+      "status": "enabled",
+      "builtIn": true,
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "role-analyst",
+      "name": "数据分析员",
+      "code": "DATA_ANALYST",
+      "description": "可查看采集、数据源、仓库和模型运行情况",
+      "functionIds": [
+        "fn-dashboard-view",
+        "fn-collection-view",
+        "fn-source-view",
+        "fn-warehouse-view",
+        "fn-model-view"
+      ],
+      "menuIds": [
+        "menu-dashboard",
+        "menu-business",
+        "menu-collections",
+        "menu-sources",
+        "menu-warehouse",
+        "menu-models"
+      ],
+      "status": "enabled",
+      "builtIn": false,
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "role-member",
+      "name": "前台用户",
+      "code": "PORTAL_MEMBER",
+      "description": "使用智能问数与数字员工前台",
+      "functionIds": [],
+      "menuIds": [],
+      "status": "enabled",
+      "builtIn": true,
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "functions": [
+    {
+      "id": "fn-dashboard-view",
+      "name": "查看工作台",
+      "code": "dashboard:view",
+      "module": "工作台",
+      "method": "GET",
+      "route": "/api/dashboard",
+      "description": "工作台的查看工作台权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-collection-view",
+      "name": "查看采集任务",
+      "code": "collection:view",
+      "module": "瞭望采集",
+      "method": "GET",
+      "route": "/api/collections",
+      "description": "瞭望采集的查看采集任务权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-collection-create",
+      "name": "新增采集任务",
+      "code": "collection:create",
+      "module": "瞭望采集",
+      "method": "POST",
+      "route": "/api/collections",
+      "description": "瞭望采集的新增采集任务权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-collection-update",
+      "name": "编辑采集任务",
+      "code": "collection:update",
+      "module": "瞭望采集",
+      "method": "PUT",
+      "route": "/api/collections/:id",
+      "description": "瞭望采集的编辑采集任务权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-collection-delete",
+      "name": "删除采集任务",
+      "code": "collection:delete",
+      "module": "瞭望采集",
+      "method": "DELETE",
+      "route": "/api/collections/:id",
+      "description": "瞭望采集的删除采集任务权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-collection-run",
+      "name": "执行采集任务",
+      "code": "collection:run",
+      "module": "瞭望采集",
+      "method": "POST",
+      "route": "/api/collections/:id/run",
+      "description": "瞭望采集的执行采集任务权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-source-view",
+      "name": "查看数据源",
+      "code": "source:view",
+      "module": "瞭源管理",
+      "method": "GET",
+      "route": "/api/sources",
+      "description": "瞭源管理的查看数据源权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-source-create",
+      "name": "新增数据源",
+      "code": "source:create",
+      "module": "瞭源管理",
+      "method": "POST",
+      "route": "/api/sources",
+      "description": "瞭源管理的新增数据源权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-source-update",
+      "name": "编辑数据源",
+      "code": "source:update",
+      "module": "瞭源管理",
+      "method": "PUT",
+      "route": "/api/sources/:id",
+      "description": "瞭源管理的编辑数据源权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-source-delete",
+      "name": "删除数据源",
+      "code": "source:delete",
+      "module": "瞭源管理",
+      "method": "DELETE",
+      "route": "/api/sources/:id",
+      "description": "瞭源管理的删除数据源权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-source-test",
+      "name": "测试数据源",
+      "code": "source:test",
+      "module": "瞭源管理",
+      "method": "POST",
+      "route": "/api/sources/:id/test",
+      "description": "瞭源管理的测试数据源权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-warehouse-view",
+      "name": "查看数据资产",
+      "code": "warehouse:view",
+      "module": "数据仓库",
+      "method": "GET",
+      "route": "/api/warehouse",
+      "description": "数据仓库的查看数据资产权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-warehouse-create",
+      "name": "新增数据资产",
+      "code": "warehouse:create",
+      "module": "数据仓库",
+      "method": "POST",
+      "route": "/api/warehouse",
+      "description": "数据仓库的新增数据资产权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-warehouse-update",
+      "name": "编辑数据资产",
+      "code": "warehouse:update",
+      "module": "数据仓库",
+      "method": "PUT",
+      "route": "/api/warehouse/:id",
+      "description": "数据仓库的编辑数据资产权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-warehouse-delete",
+      "name": "删除数据资产",
+      "code": "warehouse:delete",
+      "module": "数据仓库",
+      "method": "DELETE",
+      "route": "/api/warehouse/:id",
+      "description": "数据仓库的删除数据资产权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-warehouse-sync",
+      "name": "同步数据资产",
+      "code": "warehouse:sync",
+      "module": "数据仓库",
+      "method": "POST",
+      "route": "/api/warehouse/:id/sync",
+      "description": "数据仓库的同步数据资产权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-model-view",
+      "name": "查看模型",
+      "code": "model:view",
+      "module": "模型引擎",
+      "method": "GET",
+      "route": "/api/models",
+      "description": "模型引擎的查看模型权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-model-create",
+      "name": "新增模型",
+      "code": "model:create",
+      "module": "模型引擎",
+      "method": "POST",
+      "route": "/api/models",
+      "description": "模型引擎的新增模型权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-model-update",
+      "name": "编辑模型",
+      "code": "model:update",
+      "module": "模型引擎",
+      "method": "PUT",
+      "route": "/api/models/:id",
+      "description": "模型引擎的编辑模型权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-model-delete",
+      "name": "删除模型",
+      "code": "model:delete",
+      "module": "模型引擎",
+      "method": "DELETE",
+      "route": "/api/models/:id",
+      "description": "模型引擎的删除模型权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-model-run",
+      "name": "运行模型",
+      "code": "model:run",
+      "module": "模型引擎",
+      "method": "POST",
+      "route": "/api/models/:id/run",
+      "description": "模型引擎的运行模型权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-user-view",
+      "name": "查看用户",
+      "code": "user:view",
+      "module": "用户管理",
+      "method": "GET",
+      "route": "/api/users",
+      "description": "用户管理的查看用户权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-user-create",
+      "name": "新增用户",
+      "code": "user:create",
+      "module": "用户管理",
+      "method": "POST",
+      "route": "/api/users",
+      "description": "用户管理的新增用户权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-user-update",
+      "name": "编辑用户",
+      "code": "user:update",
+      "module": "用户管理",
+      "method": "PUT",
+      "route": "/api/users/:id",
+      "description": "用户管理的编辑用户权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-user-delete",
+      "name": "删除用户",
+      "code": "user:delete",
+      "module": "用户管理",
+      "method": "DELETE",
+      "route": "/api/users/:id",
+      "description": "用户管理的删除用户权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-user-reset",
+      "name": "重置密码",
+      "code": "user:reset",
+      "module": "用户管理",
+      "method": "POST",
+      "route": "/api/users/:id/reset-password",
+      "description": "用户管理的重置密码权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-function-view",
+      "name": "查看功能",
+      "code": "function:view",
+      "module": "功能管理",
+      "method": "GET",
+      "route": "/api/functions",
+      "description": "功能管理的查看功能权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-function-create",
+      "name": "新增功能",
+      "code": "function:create",
+      "module": "功能管理",
+      "method": "POST",
+      "route": "/api/functions",
+      "description": "功能管理的新增功能权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-function-update",
+      "name": "编辑功能",
+      "code": "function:update",
+      "module": "功能管理",
+      "method": "PUT",
+      "route": "/api/functions/:id",
+      "description": "功能管理的编辑功能权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-function-delete",
+      "name": "删除功能",
+      "code": "function:delete",
+      "module": "功能管理",
+      "method": "DELETE",
+      "route": "/api/functions/:id",
+      "description": "功能管理的删除功能权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-role-view",
+      "name": "查看角色",
+      "code": "role:view",
+      "module": "角色管理",
+      "method": "GET",
+      "route": "/api/roles",
+      "description": "角色管理的查看角色权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-role-create",
+      "name": "新增角色",
+      "code": "role:create",
+      "module": "角色管理",
+      "method": "POST",
+      "route": "/api/roles",
+      "description": "角色管理的新增角色权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-role-update",
+      "name": "编辑角色",
+      "code": "role:update",
+      "module": "角色管理",
+      "method": "PUT",
+      "route": "/api/roles/:id",
+      "description": "角色管理的编辑角色权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-role-delete",
+      "name": "删除角色",
+      "code": "role:delete",
+      "module": "角色管理",
+      "method": "DELETE",
+      "route": "/api/roles/:id",
+      "description": "角色管理的删除角色权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-menu-view",
+      "name": "查看菜单",
+      "code": "menu:view",
+      "module": "菜单管理",
+      "method": "GET",
+      "route": "/api/menus",
+      "description": "菜单管理的查看菜单权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-menu-create",
+      "name": "新增菜单",
+      "code": "menu:create",
+      "module": "菜单管理",
+      "method": "POST",
+      "route": "/api/menus",
+      "description": "菜单管理的新增菜单权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-menu-update",
+      "name": "编辑菜单",
+      "code": "menu:update",
+      "module": "菜单管理",
+      "method": "PUT",
+      "route": "/api/menus/:id",
+      "description": "菜单管理的编辑菜单权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-menu-delete",
+      "name": "删除菜单",
+      "code": "menu:delete",
+      "module": "菜单管理",
+      "method": "DELETE",
+      "route": "/api/menus/:id",
+      "description": "菜单管理的删除菜单权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-employee-view",
+      "name": "查看数字员工",
+      "code": "employee:view",
+      "module": "数字员工",
+      "method": "GET",
+      "route": "/api/employees",
+      "description": "数字员工的查看数字员工权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-employee-create",
+      "name": "新增数字员工",
+      "code": "employee:create",
+      "module": "数字员工",
+      "method": "POST",
+      "route": "/api/employees",
+      "description": "数字员工的新增数字员工权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-employee-update",
+      "name": "编辑数字员工",
+      "code": "employee:update",
+      "module": "数字员工",
+      "method": "PUT",
+      "route": "/api/employees/:id",
+      "description": "数字员工的编辑数字员工权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-employee-delete",
+      "name": "删除数字员工",
+      "code": "employee:delete",
+      "module": "数字员工",
+      "method": "DELETE",
+      "route": "/api/employees/:id",
+      "description": "数字员工的删除数字员工权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "fn-employee-run",
+      "name": "调试数字员工",
+      "code": "employee:run",
+      "module": "数字员工",
+      "method": "POST",
+      "route": "/api/employees/:id/run",
+      "description": "数字员工的调试数字员工权限",
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "menus": [
+    {
+      "id": "menu-dashboard",
+      "name": "工作台",
+      "icon": "DB",
+      "path": "dashboard",
+      "parentId": null,
+      "permission": "dashboard:view",
+      "sort": 1,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-business",
+      "name": "数据业务",
+      "icon": "OP",
+      "path": "",
+      "parentId": null,
+      "permission": "",
+      "sort": 2,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-collections",
+      "name": "瞭望采集",
+      "icon": "C",
+      "path": "collections",
+      "parentId": "menu-business",
+      "permission": "collection:view",
+      "sort": 1,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-sources",
+      "name": "瞭源管理",
+      "icon": "S",
+      "path": "sources",
+      "parentId": "menu-business",
+      "permission": "source:view",
+      "sort": 2,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-warehouse",
+      "name": "数据仓库",
+      "icon": "W",
+      "path": "warehouse",
+      "parentId": "menu-business",
+      "permission": "warehouse:view",
+      "sort": 3,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-models",
+      "name": "模型引擎",
+      "icon": "AI",
+      "path": "models",
+      "parentId": "menu-business",
+      "permission": "model:view",
+      "sort": 4,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-system",
+      "name": "权限管理",
+      "icon": "RB",
+      "path": "",
+      "parentId": null,
+      "permission": "",
+      "sort": 3,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-users",
+      "name": "用户管理",
+      "icon": "U",
+      "path": "users",
+      "parentId": "menu-system",
+      "permission": "user:view",
+      "sort": 1,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-functions",
+      "name": "功能管理",
+      "icon": "F",
+      "path": "functions",
+      "parentId": "menu-system",
+      "permission": "function:view",
+      "sort": 2,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-roles",
+      "name": "角色管理",
+      "icon": "R",
+      "path": "roles",
+      "parentId": "menu-system",
+      "permission": "role:view",
+      "sort": 3,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-menus",
+      "name": "菜单管理",
+      "icon": "M",
+      "path": "menus",
+      "parentId": "menu-system",
+      "permission": "menu:view",
+      "sort": 4,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "menu-employees",
+      "name": "数字员工",
+      "icon": "DE",
+      "path": "employees",
+      "parentId": "menu-business",
+      "permission": "employee:view",
+      "sort": 5,
+      "visible": true,
+      "status": "enabled",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-news",
+      "name": "主流新闻站点",
+      "type": "Web API",
+      "endpoint": "https://news.example/api",
+      "owner": "采集一组",
+      "status": "connected",
+      "lastCheck": "2026-07-15T02:05:41.134Z",
+      "description": "新闻资讯实时接口",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "source-social",
+      "name": "公开社交数据",
+      "type": "Crawler",
+      "endpoint": "https://social.example",
+      "owner": "采集二组",
+      "status": "connected",
+      "lastCheck": "2026-07-15T02:05:41.134Z",
+      "description": "公开话题与传播数据",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "source-report",
+      "name": "行业报告库",
+      "type": "SFTP",
+      "endpoint": "sftp://report.example/data",
+      "owner": "研究中心",
+      "status": "disconnected",
+      "lastCheck": "2026-07-15T02:05:41.134Z",
+      "description": "定期同步行业报告文件",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "collectionTasks": [
+    {
+      "id": "collection-news",
+      "name": "新闻热点实时采集",
+      "sourceId": "source-news",
+      "frequency": "每 10 分钟",
+      "target": "ods_news_event",
+      "status": "enabled",
+      "records": 128640,
+      "lastRun": "2026-07-15T02:05:41.134Z",
+      "nextRun": "2026-07-15T02:15:41.178Z",
+      "description": "采集新闻标题、正文及来源",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "collection-social",
+      "name": "社交话题趋势采集",
+      "sourceId": "source-social",
+      "frequency": "每 30 分钟",
+      "target": "ods_social_topic",
+      "status": "enabled",
+      "records": 85320,
+      "lastRun": "2026-07-15T02:05:41.134Z",
+      "nextRun": "2026-07-15T02:35:41.178Z",
+      "description": "采集公开话题趋势数据",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "collection-report",
+      "name": "行业报告每日同步",
+      "sourceId": "source-report",
+      "frequency": "每天 02:00",
+      "target": "ods_industry_report",
+      "status": "paused",
+      "records": 4860,
+      "lastRun": "2026-07-15T02:05:41.134Z",
+      "nextRun": null,
+      "description": "同步行业研究报告",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "warehouse": [
+    {
+      "id": "warehouse-news",
+      "name": "新闻事件明细表",
+      "layer": "DWD",
+      "format": "Parquet",
+      "owner": "数据平台组",
+      "source": "ods_news_event",
+      "rowCount": 2368000,
+      "size": "6.8 GB",
+      "status": "active",
+      "updatedAt": "2026-07-15T02:05:41.134Z",
+      "description": "清洗后的新闻事件明细",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "warehouse-topic",
+      "name": "话题趋势汇总表",
+      "layer": "DWS",
+      "format": "Iceberg",
+      "owner": "数据分析组",
+      "source": "ods_social_topic",
+      "rowCount": 685000,
+      "size": "2.1 GB",
+      "status": "active",
+      "updatedAt": "2026-07-15T02:05:41.134Z",
+      "description": "按小时汇总的话题热度",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "warehouse-report",
+      "name": "行业知识文档库",
+      "layer": "ADS",
+      "format": "Vector",
+      "owner": "模型研发组",
+      "source": "ods_industry_report",
+      "rowCount": 4860,
+      "size": "12.4 GB",
+      "status": "active",
+      "updatedAt": "2026-07-15T02:05:41.134Z",
+      "description": "供问数模型检索的向量库",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "models": [
+    {
+      "id": "model-topic",
+      "name": "热点主题识别模型",
+      "type": "文本分类",
+      "version": "v2.3.1",
+      "framework": "Transformers",
+      "accuracy": 94.6,
+      "status": "ready",
+      "lastRun": "2026-07-15T02:05:41.134Z",
+      "description": "识别新闻与社交内容主题",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "model-sentiment",
+      "name": "舆情情感分析模型",
+      "type": "情感分析",
+      "version": "v1.8.0",
+      "framework": "PyTorch",
+      "accuracy": 92.8,
+      "status": "ready",
+      "lastRun": "2026-07-15T02:05:41.134Z",
+      "description": "判断文本情感倾向",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "model-qa",
+      "name": "行业问数模型",
+      "type": "RAG 问答",
+      "version": "v0.9.5",
+      "framework": "LLM + Vector",
+      "accuracy": 88.4,
+      "status": "training",
+      "lastRun": "2026-07-15T02:05:41.134Z",
+      "description": "基于数据仓库的行业问答模型",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "digitalEmployees": [
+    {
+      "id": "employee-writer",
+      "code": "writer",
+      "name": "文案编写专员",
+      "avatar": "WR",
+      "specialty": "新闻稿、宣传文案、摘要与标题生成",
+      "modelId": "model-qa",
+      "prompt": "根据用户主题生成结构清晰、语言专业的中文文案。",
+      "status": "enabled",
+      "callCount": 129,
+      "createdAt": "2026-07-15T02:05:41.134Z",
+      "lastRun": "2026-07-15T02:05:41.308Z"
+    },
+    {
+      "id": "employee-weather",
+      "code": "weather",
+      "name": "天气服务专员",
+      "avatar": "WT",
+      "specialty": "城市天气查询、出行与采集窗口建议",
+      "modelId": "model-topic",
+      "prompt": "提供模拟天气信息，并给出出行和数据采集建议。",
+      "status": "enabled",
+      "callCount": 87,
+      "createdAt": "2026-07-15T02:05:41.134Z",
+      "lastRun": "2026-07-15T02:05:41.310Z"
+    },
+    {
+      "id": "employee-collector",
+      "code": "collector",
+      "name": "智能采集专员",
+      "avatar": "CL",
+      "specialty": "采集方案设计、任务拆解与数据源推荐",
+      "modelId": "model-topic",
+      "prompt": "将采集需求转换为可执行任务方案。",
+      "status": "enabled",
+      "callCount": 204,
+      "createdAt": "2026-07-15T02:05:41.134Z",
+      "lastRun": "2026-07-15T02:05:41.311Z"
+    }
+  ],
+  "portalTasks": [
+    {
+      "id": "task-demo-1",
+      "userId": "user-demo",
+      "title": "生成本周行业热点摘要",
+      "employeeCode": "writer",
+      "status": "completed",
+      "progress": 100,
+      "result": "已生成 6 条热点摘要与标题建议。",
+      "createdAt": "2026-07-15T02:05:41.134Z",
+      "updatedAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "task-demo-2",
+      "userId": "user-demo",
+      "title": "检查新闻数据源采集状态",
+      "employeeCode": "collector",
+      "status": "running",
+      "progress": 65,
+      "result": "",
+      "createdAt": "2026-07-15T02:05:41.134Z",
+      "updatedAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "reports": [
+    {
+      "id": "report-trend",
+      "name": "舆情趋势周报",
+      "type": "趋势分析",
+      "period": "本周",
+      "metric": "热点事件",
+      "value": 128,
+      "change": 18.6,
+      "color": "#18a999",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "report-source",
+      "name": "数据源健康报告",
+      "type": "运行质量",
+      "period": "今日",
+      "metric": "连接成功率",
+      "value": 96.4,
+      "change": 2.1,
+      "color": "#3b78a6",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    },
+    {
+      "id": "report-model",
+      "name": "模型效果报告",
+      "type": "模型评估",
+      "period": "v0.3",
+      "metric": "平均准确率",
+      "value": 92.1,
+      "change": 1.7,
+      "color": "#7e61b6",
+      "createdAt": "2026-07-15T02:05:41.134Z"
+    }
+  ],
+  "userPreferences": {
+    "user-demo": {
+      "modelId": "model-qa"
+    }
+  },
+  "conversations": []
+}

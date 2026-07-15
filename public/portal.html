@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>智能瞭望与智能问数系统 v0.3</title><link rel="stylesheet" href="/portal.css"></head>
+<body class="portal-page">
+  <div class="portal-layout">
+    <aside class="portal-sidebar">
+      <div class="portal-brand"><div class="portal-logo small">LW</div><div><strong>智能瞭望</strong><span>智能问数系统 v0.3</span></div></div>
+      <nav id="portalNav">
+        <button data-view="ask" class="active"><i>Q</i>智能问数</button><button data-view="chat"><i>AI</i>AI 问答</button><button data-view="employees"><i>@</i>数字员工</button><button data-view="reports"><i>R</i>报表呈现</button><button data-view="tasks"><i>T</i>任务列表</button><button data-view="models"><i>M</i>模型切换</button>
+      </nav>
+      <div class="portal-user"><div class="user-dot" id="portalAvatar">用</div><div><strong id="portalName">用户</strong><span>智能工作台</span></div><button id="portalLogout">退出</button></div>
+    </aside>
+    <main class="portal-main"><header class="portal-topbar"><div><p class="kicker">INTELLIGENT WORKSPACE</p><h1 id="portalTitle">智能问数</h1></div><label class="model-picker">当前模型<select id="globalModel"></select></label></header><section id="portalContent" class="portal-content"><div class="portal-loading">正在连接智能平台...</div></section></main>
+  </div>
+  <div id="portalToast" class="portal-toast"></div>
+  <script src="/portal.js"></script>
+</body></html>

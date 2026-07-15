@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能瞭望与智能问数系统 v0.3 - 后台</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="admin-page">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><div class="brand-mark small">LW</div><div><strong>智能瞭望与问数</strong><span>后台管理平台 v0.3</span></div></div>
+      <nav id="sidebarNav" class="sidebar-nav"></nav>
+      <div class="sidebar-user">
+        <div class="avatar" id="avatar">A</div>
+        <div><strong id="currentName">管理员</strong><span id="currentRole">加载中</span></div>
+        <button class="icon-btn" id="logoutButton" title="退出登录">退出</button>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <div><p class="breadcrumb">瞭望平台 / <span id="breadcrumb">工作台</span></p><h1 id="pageTitle">工作台</h1></div>
+        <div class="topbar-actions"><span class="system-status"><i></i>系统运行正常</span><span id="clock"></span></div>
+      </header>
+      <section id="content" class="content-area"><div class="loading">正在加载...</div></section>
+    </main>
+  </div>
+  <div id="modal" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal glass-panel"><div class="modal-head"><div><p class="eyebrow">PERMISSION CENTER</p><h2 id="modalTitle">编辑</h2></div><button id="modalClose" class="icon-btn" type="button">关闭</button></div><form id="modalForm"><div id="modalBody" class="modal-body"></div><div class="modal-actions"><button type="button" class="btn btn-secondary" id="modalCancel">取消</button><button type="submit" class="btn btn-primary">保存</button></div></form></div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+node_modules/
+.env
+venv/
+.venv/
+data/*.tmp
+demo-frames/

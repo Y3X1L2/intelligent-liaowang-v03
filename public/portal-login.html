@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>登录 - 智能瞭望与智能问数</title><link rel="stylesheet" href="/portal.css"></head>
+<body class="auth-page">
+  <div class="auth-visual"><div class="portal-logo">LW</div><p class="kicker">INTELLIGENT LIAOWANG</p><h1>让数据自己回答问题</h1><p>连接多源数据、智能模型与数字员工，用自然语言完成查询、分析和内容生产。</p><div class="auth-tags"><span>智能问数</span><span>AI 问答</span><span>@数字员工</span></div></div>
+  <main class="auth-card"><p class="kicker">WELCOME BACK</p><h2>登录智能工作台</h2><p class="muted">使用账号进入智能问数前台</p>
+    <form id="authForm" data-mode="login">
+      <label>用户名<input name="username" value="demo" required maxlength="30" autocomplete="username"></label>
+      <label>密码<input name="password" type="password" value="123456" required maxlength="72" autocomplete="current-password"></label>
+      <div class="auth-error" id="authError"></div><button type="submit" id="authButton">登录</button>
+    </form>
+    <p class="auth-link">还没有账号？<a href="/register">立即注册</a></p><p class="auth-link"><a href="/login">管理员后台</a></p>
+  </main>
+  <script src="/auth.js"></script>
+</body></html>
