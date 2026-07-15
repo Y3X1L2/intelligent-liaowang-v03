@@ -26,6 +26,8 @@ function verifyPassword(password, stored) {
   return actual.length === expectedBuffer.length && crypto.timingSafeEqual(actual, expectedBuffer);
 }
 
+const DUMMY_PASSWORD_HASH = hashPassword('invalid-login-placeholder');
+
 function permissionRows() {
   return [
     ['dashboard', '工作台', [['view', '查看工作台', 'GET', '/api/dashboard']]],
@@ -220,6 +222,10 @@ function isLoginBlocked(key) {
 }
 
 function recordLoginFailure(key) {
+  if (loginAttempts.size > 5000) {
+    const cutoff = Date.now() - 10 * 60 * 1000;
+    for (const [itemKey, record] of loginAttempts) if (record.startedAt < cutoff) loginAttempts.delete(itemKey);
+  }
   const record = loginAttempts.get(key);
   if (!record || Date.now() - record.startedAt > 10 * 60 * 1000) loginAttempts.set(key, { count: 1, startedAt: Date.now() });
   else record.count += 1;
@@ -288,14 +294,18 @@ app.post(['/api/login', '/api/auth/login'], (req, res) => {
   if (isLoginBlocked(attemptKey)) return res.status(429).json({ success: false, message: '登录尝试过于频繁，请 10 分钟后重试' });
   const db = readDb();
   const user = db.users.find((item) => item.username === cleanText(req.body.username, 40));
-  if (!user || user.status !== 'enabled' || !verifyPassword(String(req.body.password || ''), user.passwordHash)) {
+  const passwordValid = verifyPassword(String(req.body.password || ''), user?.passwordHash || DUMMY_PASSWORD_HASH);
+  if (!user || user.status !== 'enabled' || !passwordValid) {
     recordLoginFailure(attemptKey);
     return res.status(401).json({ success: false, message: '用户名或密码错误，或账号已停用' });
   }
   loginAttempts.delete(attemptKey);
-  req.session.userId = user.id;
   const access = getAccess(user, db);
-  return res.json({ success: true, message: '登录成功', destination: access.permissions.length ? '/dashboard' : '/app', data: { ...publicUser(user, db), ...access } });
+  return req.session.regenerate((error) => {
+    if (error) return res.status(500).json({ success: false, message: '会话初始化失败' });
+    req.session.userId = user.id;
+    return res.json({ success: true, message: '登录成功', destination: access.permissions.length ? '/dashboard' : '/app', data: { ...publicUser(user, db), ...access } });
+  });
 });
 
 app.post('/api/auth/register', (req, res) => {
@@ -312,8 +322,11 @@ app.post('/api/auth/register', (req, res) => {
   db.users.push(user);
   db.userPreferences[user.id] = { modelId: 'model-qa' };
   writeDb(db);
-  req.session.userId = user.id;
-  return res.status(201).json({ success: true, message: '注册成功', destination: '/app', data: publicUser(user, db) });
+  return req.session.regenerate((error) => {
+    if (error) return res.status(500).json({ success: false, message: '会话初始化失败' });
+    req.session.userId = user.id;
+    return res.status(201).json({ success: true, message: '注册成功', destination: '/app', data: publicUser(user, db) });
+  });
 });
 
 app.post(['/api/legacy-login-disabled'], (req, res) => {
