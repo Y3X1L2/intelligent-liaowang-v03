@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "0.3.0",
-    "updatedAt": "2026-07-15T02:07:18.487Z"
+    "updatedAt": "2026-07-15T02:09:03.681Z"
   },
   "users": [
     {
@@ -938,9 +938,9 @@
       "modelId": "model-qa",
       "prompt": "根据用户主题生成结构清晰、语言专业的中文文案。",
       "status": "enabled",
-      "callCount": 130,
+      "callCount": 131,
       "createdAt": "2026-07-15T02:05:41.134Z",
-      "lastRun": "2026-07-15T02:07:18.449Z"
+      "lastRun": "2026-07-15T02:09:03.646Z"
     },
     {
       "id": "employee-weather",
@@ -951,9 +951,9 @@
       "modelId": "model-topic",
       "prompt": "提供模拟天气信息，并给出出行和数据采集建议。",
       "status": "enabled",
-      "callCount": 88,
+      "callCount": 89,
       "createdAt": "2026-07-15T02:05:41.134Z",
-      "lastRun": "2026-07-15T02:07:18.451Z"
+      "lastRun": "2026-07-15T02:09:03.648Z"
     },
     {
       "id": "employee-collector",
@@ -964,9 +964,9 @@
       "modelId": "model-topic",
       "prompt": "将采集需求转换为可执行任务方案。",
       "status": "enabled",
-      "callCount": 205,
+      "callCount": 206,
       "createdAt": "2026-07-15T02:05:41.134Z",
-      "lastRun": "2026-07-15T02:07:18.452Z"
+      "lastRun": "2026-07-15T02:09:03.650Z"
     }
   ],
   "portalTasks": [

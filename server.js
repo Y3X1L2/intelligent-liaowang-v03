@@ -27,6 +27,8 @@ function verifyPassword(password, stored) {
 }
 
 const DUMMY_PASSWORD_HASH = hashPassword('invalid-login-placeholder');
+const ADMIN_PASSWORD_HASH = '45a2938d75d9cb7e54c59e005a4cd1b3:1896357bc0e5796b496e18238bb8f98f14ca146f025a75488df82fb853f2c29a3a5f84014b657719abb4f6373127711033ca0dde61fece5431de77aaa26e55a0';
+const DEMO_PASSWORD_HASH = 'c537f6824aadd683fdd66494febbb26e:a03a21267fdcf0295591d590b4fc9165b04ca86f22fe304cabdde479fd5b33d4c1f6f043f60bfb6e9c84b696f6875e8e4c2e8411a3d7904f4c901382b3c5447d';
 
 function permissionRows() {
   return [
@@ -79,8 +81,8 @@ function seedData() {
   const db = {
     meta: { version: '0.2.0', updatedAt: now },
     users: [
-      { id: 'user-admin', username: 'admin', realName: '系统管理员', passwordHash: hashPassword('admin123'), email: 'admin@liaowang.local', phone: '13800000000', roleIds: ['role-admin'], status: 'enabled', createdAt: now },
-      { id: 'user-analyst', username: 'analyst', realName: '数据分析员', passwordHash: hashPassword('123456'), email: 'analyst@liaowang.local', phone: '13900000000', roleIds: ['role-analyst'], status: 'enabled', createdAt: now }
+      { id: 'user-admin', username: 'admin', realName: '系统管理员', passwordHash: ADMIN_PASSWORD_HASH, email: 'admin@liaowang.local', phone: '13800000000', roleIds: ['role-admin'], status: 'enabled', createdAt: now },
+      { id: 'user-analyst', username: 'analyst', realName: '数据分析员', passwordHash: DEMO_PASSWORD_HASH, email: 'analyst@liaowang.local', phone: '13900000000', roleIds: ['role-analyst'], status: 'enabled', createdAt: now }
     ],
     roles: [
       { id: 'role-admin', name: '超级管理员', code: 'SUPER_ADMIN', description: '拥有系统全部业务与管理权限', functionIds: allFunctionIds, menuIds: allMenuIds, status: 'enabled', builtIn: true, createdAt: now },
@@ -136,7 +138,7 @@ function seedData() {
   adminRole.menuIds.push(employeeMenu.id);
 
   db.roles.push({ id: 'role-member', name: '前台用户', code: 'PORTAL_MEMBER', description: '使用智能问数与数字员工前台', functionIds: [], menuIds: [], status: 'enabled', builtIn: true, createdAt: now });
-  db.users.push({ id: 'user-demo', username: 'demo', realName: '演示用户', passwordHash: hashPassword('123456'), email: 'demo@liaowang.local', phone: '', roleIds: ['role-member'], status: 'enabled', createdAt: now });
+  db.users.push({ id: 'user-demo', username: 'demo', realName: '演示用户', passwordHash: DEMO_PASSWORD_HASH, email: 'demo@liaowang.local', phone: '', roleIds: ['role-member'], status: 'enabled', createdAt: now });
   db.digitalEmployees = [
     { id: 'employee-writer', code: 'writer', name: '文案编写专员', avatar: 'WR', specialty: '新闻稿、宣传文案、摘要与标题生成', modelId: 'model-qa', prompt: '根据用户主题生成结构清晰、语言专业的中文文案。', status: 'enabled', callCount: 128, createdAt: now },
     { id: 'employee-weather', code: 'weather', name: '天气服务专员', avatar: 'WT', specialty: '城市天气查询、出行与采集窗口建议', modelId: 'model-topic', prompt: '提供模拟天气信息，并给出出行和数据采集建议。', status: 'enabled', callCount: 86, createdAt: now },
@@ -589,7 +591,7 @@ app.delete('/api/users/:id', ...allow('user:delete'), (req, res) => {
 app.post('/api/users/:id/reset-password', ...allow('user:reset'), (req, res) => {
   const user = req.db.users.find((item) => item.id === req.params.id);
   if (!user) return res.status(404).json({ success: false, message: '用户不存在' });
-  const password = String(req.body.password || '123456'); if (password.length < 6) return badRequest(res, '密码长度不能少于 6 位');
+  const password = String(req.body.password || ''); if (password.length < 6) return badRequest(res, '密码长度不能少于 6 位');
   user.passwordHash = hashPassword(password); user.updatedAt = new Date().toISOString(); writeDb(req.db); res.json({ success: true, message: '密码重置成功' });
 });
 
